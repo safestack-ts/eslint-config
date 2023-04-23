@@ -18,11 +18,11 @@ jobs:
           node-version: 18
           registry-url: https://registry.npmjs.org/
       - run: |
+          npm i
           npx --yes publish-if-not-published -- --dry-run
           if npx --yes publish-if-not-published -- --dry-run | grep -q 'already published'; then
             echo 'Version already published, skipping release...'
             exit 0
           else
-            npm i
             npx --yes publish-if-not-published -- --access public
           fi

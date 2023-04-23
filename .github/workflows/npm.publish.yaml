@@ -1,0 +1,28 @@
+name: NPM Publish
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN_PUBLISH}}
+      NPM_TOKEN: ${{secrets.NPM_TOKEN_PUBLISH}}
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
+      - run: |
+          npx --yes publish-if-not-published -- --dry-run
+          if npx --yes publish-if-not-published -- --dry-run | grep -q 'already published'; then
+            echo 'Version already published, skipping release...'
+            exit 0
+          else
+            npm ci
+            npx --yes publish-if-not-published -- --access public
+          fi

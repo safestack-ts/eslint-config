@@ -1,0 +1,24 @@
+{
+  "name": "@safestack/eslint-config",
+  "version": "1.0.0",
+  "description": "Basic eslint config for typescript-driven nodejs and frontend projects",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/safestack-ts/eslint-config.git"
+  },
+  "keywords": [
+    "eslint",
+    "config",
+    "typescript"
+  ],
+  "author": "Yannick Stachelscheid",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/safestack-ts/eslint-config/issues"
+  },
+  "homepage": "https://github.com/safestack-ts/eslint-config#readme"
+}

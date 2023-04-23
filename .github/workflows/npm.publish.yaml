@@ -23,6 +23,6 @@ jobs:
             echo 'Version already published, skipping release...'
             exit 0
           else
-            npm ci
+            npm i
             npx --yes publish-if-not-published -- --access public
           fi
